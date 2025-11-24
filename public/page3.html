@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Orders - Page 3 (Archive)</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Scripts for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Orders Archive</h1>
+                <div class="subtitle">Page 3 - Final Archive <span lang="ar">(الأرشيف النهائي)</span></div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Page 1</a>
+                <a href="page2.html" class="nav-link">Page 2</a>
+                <a href="page3.html" class="nav-link active">Page 3</a>
+            </nav>
+        </header>
+
+        <div class="controls">
+            <button id="downloadPdfBtn" class="btn-primary">Download PDF</button>
+            <button id="clearArchiveBtn" class="btn-danger">Clear Archive</button>
+        </div>
+
+        <div id="archiveContainer">
+            <!-- Archive cards will be rendered here -->
+        </div>
+    </div>
+
+    <script src="page3.js"></script>
+</body>
+
+</html>

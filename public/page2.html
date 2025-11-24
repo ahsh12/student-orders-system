@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Orders - Page 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Orders Processing</h1>
+                <div class="subtitle">Page 2 - Employee 2 <span lang="ar">(معالجة الطلبات)</span></div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Page 1</a>
+                <a href="page2.html" class="nav-link active">Page 2</a>
+                <a href="page3.html" class="nav-link">Page 3</a>
+            </nav>
+        </header>
+
+        <div class="controls">
+            <button id="addRowBtn" class="btn-secondary">+ Add Row</button>
+            <button id="removeBtn" class="btn-secondary">Remove Selected</button>
+            <button id="clearBtn" class="btn-danger">Clear All</button>
+        </div>
+
+        <div class="table-container">
+            <table id="ordersTable">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">#</th>
+                        <th style="width: 110px;">Date</th>
+                        <th>User</th>
+                        <th>Phone</th>
+                        <th>Title</th>
+                        <th>Link</th>
+                        <th>Page Name</th>
+                        <th style="width: 90px;">USD Price</th>
+                        <th style="width: 70px;">Qty</th>
+                        <th style="width: 100px;">Cust. Price</th>
+                        <th style="width: 90px;">Deposit</th>
+                        <th style="width: 100px;">Remaining</th>
+                        <th style="width: 90px;">Profit</th>
+                        <th style="width: 50px;">Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="totals-section">
+            <div class="total-item">
+                <span>Total USD:</span>
+                <span id="totalUsd" class="total-value">0.000</span>
+            </div>
+            <div class="total-item">
+                <span>Total Qty:</span>
+                <span id="totalQty" class="total-value">0</span>
+            </div>
+            <div class="total-item">
+                <span>Total Profit:</span>
+                <span id="totalProfit" class="total-value">0.000</span>
+            </div>
+        </div>
+
+        <div
+            style="margin-top: 24px; display: flex; gap: 16px; align-items: flex-end; justify-content: flex-end; border-top: 1px solid var(--border-color); padding-top: 24px;">
+            <div style="flex-grow: 1;"></div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label for="orderCode" style="font-weight: 500; font-size: 0.9rem;">Order Code <span
+                        style="color: red;">*</span></label>
+                <input type="text" id="orderCode" placeholder="Enter Code" style="width: 200px;">
+            </div>
+            <button id="doneBtn" class="btn-primary" style="height: 38px;">Done / Complete Order</button>
+        </div>
+    </div>
+
+    <script src="page2.js"></script>
+</body>
+
+</html>
