@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Use DATABASE_URL from environment variables (Render provides this)
 // Fallback to a local connection string if needed for testing, but ideally rely on env vars.
