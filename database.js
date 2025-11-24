@@ -1,13 +1,12 @@
+require("dotenv").config();
 const { Pool } = require('pg');
 const bcrypt = require('bcryptjs');
 
-// Use DATABASE_URL from environment variables (Render provides this)
-// Fallback to a local connection string if needed for testing, but ideally rely on env vars.
-const connectionString = process.env.DATABASE_URL;
-
 const pool = new Pool({
-    connectionString: connectionString,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 pool.on('error', (err, client) => {
@@ -78,8 +77,11 @@ const initializeDB = async () => {
         // Actually, connect-pg-simple documentation recommends this table structure.
         // Let's just try to add the primary key constraint, catching error if it exists.
         try {
+            await client.query('SAVEPOINT session_pkey_savepoint');
             await client.query('ALTER TABLE session ADD CONSTRAINT session_pkey PRIMARY KEY (sid) NOT DEFERRABLE INITIALLY IMMEDIATE');
+            await client.query('RELEASE SAVEPOINT session_pkey_savepoint');
         } catch (e) {
+            await client.query('ROLLBACK TO SAVEPOINT session_pkey_savepoint');
             // Ignore if already exists
         }
 
