@@ -7,6 +7,7 @@ const path = require('path');
 const db = require('./database');
 
 const app = express();
+app.set('trust proxy', 1); // Required for Render to handle secure cookies correctly
 const PORT = process.env.PORT || 3000;
 
 // Initialize Database on Start
@@ -27,8 +28,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // true if https
-        maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+        secure: true,          // because Render uses HTTPS
+        sameSite: 'none'       // required for cross-site cookies on Render
     }
 }));
 
