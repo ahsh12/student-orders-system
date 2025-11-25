@@ -169,6 +169,23 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+/* Hide number spinners for specific inputs */
+input[name="usdPrice"]::-webkit-outer-spin-button,
+input[name="usdPrice"]::-webkit-inner-spin-button,
+input[name="qty"]::-webkit-outer-spin-button,
+input[name="qty"]::-webkit-inner-spin-button,
+input[name="deposit"]::-webkit-outer-spin-button,
+input[name="deposit"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[name="usdPrice"],
+input[name="qty"],
+input[name="deposit"] {
+    -moz-appearance: textfield;
+}
+
 .input-error {
     border-color: var(--danger-color) !important;
     background-color: #fef2f2;
